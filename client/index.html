@@ -9,10 +9,38 @@
   <body>
     <h1>World of Harry Potter Quotes</h1>
     <form id="quotes-form">
-      <input type="text" name="who" id="name" />
-      <input type="text" name="what" id="message" />
+      <input
+        type="text"
+        name="who"
+        id="name"
+        required
+        minlength="3"
+        maxlength="15"
+      />
+      <input
+        type="text"
+        name="what"
+        id="message"
+        required
+        minlength="3"
+        maxlength="50"
+      />
       <button type="submit">Send</button>
     </form>
     <div id="quotesBox"></div>
   </body>
 </html>
+
+<!-- STRETCH GOALS
+🏹 Provide additional functionality on the form, for example, by adding form validation or other options.
+🏹 Style the page excellently, for example, by adding extra UX considerations or animations.
+🏹 Add a delete button to each message and a DELETE route in the server.
+🏹 Create an option for users to like others’ posts.
+
+sort asc desc
+theme - Houses
+delete - jon
+verification
+
+
+-->

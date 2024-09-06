@@ -3,7 +3,7 @@ THIS IS THE PART WHERE WE GET THE DATA
 */
 
 //get the html element
-const quotesBox = document.getElementById("quotes");
+const quotesBox = document.getElementById("quotesBox");
 
 //fetch the items from the db via server
 async function getQuotes() {
@@ -13,47 +13,70 @@ async function getQuotes() {
 
   //clear the container div
   //clear the container div
-    quotesBox.innerHTML = "";
+  quotesBox.innerHTML = "";
 
   //show the data on the page
   //loop through it all
 
   data.forEach(function (quotes) {
+    const quoteElement = document.createElement("div");
+    quoteElement.id = `quotes-${quotes.id}`;
+
     const p = document.createElement("p");
-    p.textContent = `One time, ${quote.who} ${quote.what}`;
+    p.textContent = `${quotes.who} ${quotes.what}`;
     quotesBox.appendChild(p);
-  }); /// ITEMS NOT DISPLAYING ON PAGE  YELP!!!!
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.addEventListener("click", async () => {
+      await deleteQuote(quotes.id);
+      removeQuote(quotes.id);
+    });
+
+    quoteElement.appendChild(deleteBtn);
+    quotesBox.appendChild(deleteBtn);
+  });
 }
 getQuotes();
+
+async function deleteQuote(id) {
+  await fetch(`http://localhost:8080/quotes/${id}`, {
+    method: "DELETE",
+  });
+}
+
+function removeQuote(id) {
+  const quoteElement = document.getElementById(`quotes-${id}`);
+  if (quoteElement) {
+    quoteElement.remove();
+  }
+}
 /*
 THIS IS THE PART WHERE WE ADD NEW DATA
 */
-const form = document.getElementById('quotes-form');
+const form = document.getElementById("quotes-form");
 
-async function postQuote(){
-    event.preventDefault();
-    //get the info from the form
-    const formData - new FormData(form);
-    const data = Object.fromEntries(formData);
+async function postQuote() {
+  event.preventDefault();
+  //get the info from the form
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
 
+  //make a fetch POST request to add new data
+  await fetch("http://localhost:8080/quotes", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
 
-    //make a fetch POST request to add new data
-    await fetch ("http://localhost:8080/quotes", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-    });
+  //reset the form
+  form.reset();
 
-    //reset the form
-    form.reset();
-
-    //add the new quote on the screen
-    getQuotes();
+  //add the new quote on the screen
+  getQuotes();
 }
 
-
-
-form.addEventListener("submit", handlePostMistake);
+form.addEventListener("submit", postQuote);
 //post the data

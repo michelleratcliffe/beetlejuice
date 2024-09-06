@@ -16,6 +16,12 @@ const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
+app.delete("/quotes/:id", async function (req, res) {
+  const id = req.params.id;
+  db.query("DELETE FROM quotes WHERE id = $1", [id]);
+  res.json("success");
+});
+
 //home route/endpoint
 app.get("/", (req, res) => {
   //request && result
@@ -31,22 +37,18 @@ app.get("/quotes", async (req, res) => {
 
 //post is for insertion
 app.post("/quotes", async (req, res) => {
-  console.log(request.body);
+  console.log(req.body);
   //get teh bits of info from request that we ned
   const who = req.body.who;
   const what = req.body.what;
 
   const newQuote = await db.query(
-    "INSERT INTO quotes (who, what) VALUES (who, what)", //insert into db
+    "INSERT INTO quotes (who, what) VALUES ($1, $2)", //insert into db
     [who, what] //sanitising the data in case there is something dodgy like bobby droptables
   );
   //send back response from the db
   res.json(newQuote.rows[0]); //starting the rows from zero... wipe... reset
-
-
 });
-
-
 
 app.listen(8080, function () {
   console.log(`Server is running on port 8080`);
