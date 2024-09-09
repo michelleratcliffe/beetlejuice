@@ -23,9 +23,17 @@ async function getQuotes() {
     quoteElement.id = `quotes-${quotes.id}`;
 
     const p = document.createElement("p");
-    p.textContent = `${quotes.who} ${quotes.what}`;
+    p.textContent = `${quotes.who}:  ${quotes.what}`;
     quotesBox.appendChild(p);
 
+    const likeButton = document.createElement("button");
+    likeButton.textContent = `Like (${quotes.likes})`;
+    likeButton.addEventListener("click", async () => {
+      await likeQuote(quotes.id);
+    });
+    quoteElement.appendChild(likeButton);
+
+    //delete button
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
     deleteBtn.addEventListener("click", async () => {
@@ -35,8 +43,32 @@ async function getQuotes() {
 
     quoteElement.appendChild(deleteBtn);
     quotesBox.appendChild(deleteBtn);
+
+    //like button
+    const likeBtn = document.createElement("button");
+    likeBtn.textContent = `Like: ${quotes.likes}`;
+    likeBtn.addEventListener("click", async () => {
+      await likeQuote(quotes.id);
+      // addQuote(quotes.id);
+      // likeBtn.textContent = +1;
+    });
+
+    quoteElement.appendChild(likeBtn);
+    quotesBox.appendChild(likeBtn);
   });
 }
+
+// async function likeQuote(id) {
+//   const res = await fetch(`http://localhost:8080/quotes/${id}`);
+// }
+
+async function likeQuote(id) {
+  const response = await fetch(`http://localhost:8080/quotes/${id}/like`, {
+    method: "POST",
+  });
+  await getQuotes();
+}
+
 getQuotes();
 
 async function deleteQuote(id) {

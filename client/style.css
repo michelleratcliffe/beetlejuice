@@ -1,0 +1,79 @@
+body {
+  background-image: url("./assets/purple.jpg");
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 4rem;
+  color: lawngreen;
+  margin: 20px;
+  text-transform: uppercase;
+}
+form > input {
+  margin: 20px;
+  border: 2px solid black;
+  width: 300px;
+}
+form > button {
+  background-color: black;
+  color: white;
+  padding: 0 20px 0 20px;
+}
+#quotesBox {
+  padding: 20px;
+  margin: 50px;
+}
+#quotesBox > p {
+  color: lawngreen;
+  padding: 20px 0 20px 0;
+}
+#quotesBox > button {
+  color: white;
+  background-color: black;
+  padding: 10px;
+  margin-right: 10px;
+}
+.animated {
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  align-items: center;
+}
+
+#beetlejuiceMagic {
+  width: 20rem;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.music {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.libre-caslon-text-regular {
+  font-family: "Libre Caslon Text", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.libre-caslon-text-bold {
+  font-family: "Libre Caslon Text", system-ui;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.libre-caslon-text-regular-italic {
+  font-family: "Libre Caslon Text", system-ui;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@media {
+}

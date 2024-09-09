@@ -3,31 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>World of Harry Potter Quotes 💀</title>
+    <title>Beetlejuice 💀</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/beetlejuice-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="./assets/beetlejuice-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/beetlejuice-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/beetlejuice-16x16.png"
+    />
     <script type="module" src="./app.js" defer></script>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>World of Harry Potter Quotes</h1>
-    <form id="quotes-form">
-      <input
-        type="text"
-        name="who"
-        id="name"
-        required
-        minlength="3"
-        maxlength="15"
-      />
-      <input
-        type="text"
-        name="what"
-        id="message"
-        required
-        minlength="3"
-        maxlength="50"
-      />
-      <button type="submit">Send</button>
-    </form>
-    <div id="quotesBox"></div>
+    <audio
+      class="music"
+      type="audio/mp3"
+      src="./assets/517267__foolboymedia__cinematic-stomp.wav"
+      autoplay
+      loop
+      controls
+    ></audio>
+    <div class="animated">
+      <h1 class="libre-caslon-text-bold">Beetlejuice!s</h1>
+      <div id="beetlejuiceMagic"><img src="./assets/beetlejuice.gif" /></div>
+
+      <form id="quotes-form">
+        <input
+          type="text"
+          name="who"
+          id="name"
+          required
+          minlength="3"
+          maxlength="15"
+        />
+        <input
+          type="text"
+          name="what"
+          id="message"
+          required
+          minlength="3"
+          maxlength="50"
+        />
+        <button type="submit">Send</button>
+      </form>
+      <div id="quotesBox" class="libre-caslon-text-regular"></div>
+    </div>
   </body>
 </html>
 

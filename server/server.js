@@ -50,6 +50,15 @@ app.post("/quotes", async (req, res) => {
   res.json(newQuote.rows[0]); //starting the rows from zero... wipe... reset
 });
 
+app.post("/quotes/:id/like", async function (req, res) {
+  const id = req.params.id;
+  await db.query("UPDATE quotes SET likes = likes + 1 WHERE id = $1", [id]);
+  const updatedQuote = await db.query("SELECT * FROM quotes WHERE id = $1", [
+    id,
+  ]);
+  res.json(updatedQuote.rows[0]);
+});
+
 app.listen(8080, function () {
   console.log(`Server is running on port 8080`);
 });
