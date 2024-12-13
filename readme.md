@@ -31,6 +31,7 @@
 <p>What errors or bugs did you encounter while completing your assignment? How did you solve them?</p>
 <p>What went really well and what could have gone better?</p>
 
+<!-- 
 <h3>Reflections</h3>
 
 <p>We built the most of the website during class so had fun rebuilding it a few times to sink it into memory esp all the server/client stuff</p>
@@ -39,3 +40,4 @@
 <p>Then changed my mind again after watching Beetlejuice on Saturday and changed it yet again.</p>
 <p>The weekend I made it pretty and added sound</p>
 <p>Sunday night I helped others deploy theirs and get them from failing to working then had so many issues with mine, went to bed eventually as I was too tired to think and this morning I realised I never build my dist folder... so got it working then realised I forgot to removed my readme from the .gitignore since it broke my last project so quickly added this and reanabled the sound and media queries that I had on the side as the sound kept driving my husband nuts while working on it...</p>
+--> 
