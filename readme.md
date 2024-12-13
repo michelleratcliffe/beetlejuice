@@ -1,8 +1,3 @@
-<h1 align="center">Hi 👋, I'm Michelle Ratcliffe</h1>
-<h3 align="center">A passionate frontend developer from South Africa, living in the UK.</h3>
-
-- 🌱 I’m currently learning **CSS, HTML & CSS**
-
 <h2>Stretch User Stories</h2>
 <p>🐿️ As a user, I want additional functionality on the form such as form validation so that I can have a more interactive experience when submitting my information.</p>
 <p>🐿️ As a user, I want the website to be visually impressive and user-friendly so that it provides a pleasant browsing experience.</p>
